@@ -20,7 +20,7 @@
 .bash {
     background-color: black;
     color: rgb(24, 156, 52);
-    font-size: medium ; 
+    font-size: 14px; 
     font-family: Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New, monospace;
     width: 100%;
     display: inline-block;
