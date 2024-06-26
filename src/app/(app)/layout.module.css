@@ -1,0 +1,106 @@
+.rightBar {
+    background-color: #101204;
+    float: left;
+    height: 100vh;
+    margin: 0;
+    width: 300px;
+}
+
+.header {
+    color: #B6C2CF;
+    font-size: 14px;
+    margin-left: 7%;
+    margin-top: 30px;
+    width: 93%;
+}
+
+.newTerminalButton {
+    background-color: #ffffff15;
+    border: none;
+    border-radius: 5px;
+    color: #a3aeba;
+    cursor: pointer;
+    height: 40px;
+    margin-top: 10px;
+    margin-left: 5%;
+    margin-right: 5%;
+    outline: none;
+    width: 90%;
+}
+
+.newTerminalButton:hover {
+    outline: solid 2px #579CFF;
+}
+
+.newTerminalButton:active {
+    outline: none;
+}
+
+.newTerminalButton p {
+    float: left;
+    font-size: 25px;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.newTerminalButton span {
+    float: left;
+    font-size: 15px;
+    margin-top: 11px;
+    margin-left: 10px;
+}
+
+.terminalCard {
+    background-color: #22272B;
+    border: none;
+    border-radius: 5px;
+    color: #a3aeba;
+    cursor: pointer;
+    height: 40px;
+    margin-top: 10px;
+    margin-left: 5%;
+    margin-right: 5%;
+    outline: none;
+    width: 90%;
+}
+
+.terminalCard:hover {
+    outline: solid 2px #579CFF;
+}
+
+.terminalCard:active {
+    outline: none;
+}
+
+.statusContainer {
+    background-color: #AE3025;
+    border-radius: 3px;
+    font-size: 13px;
+    float: left;
+    margin-left: 10px;
+    margin-top: 13px;
+    text-decoration: none;
+    width: min-content;
+}
+
+.titleContainer {
+    font-size: 15px;
+    float: left;
+    margin-left: 10px;
+    margin-top: 11px;
+    text-decoration: none;
+}
+
+.titleInput {
+    background-color: #22272B;
+    border: solid 1px #738496;
+    border-radius: 5px;
+    color: #B3BFCC;
+    height: 25px;
+    float: left;
+    margin-left: 2%;
+    margin-right: 3%;
+    margin-top: -40px;
+    outline: none;
+    width: 94%;
+}
