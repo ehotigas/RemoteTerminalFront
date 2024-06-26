@@ -28,10 +28,6 @@
     width: 90%;
 }
 
-.newTerminalButton:hover {
-    outline: solid 2px #579CFF;
-}
-
 .newTerminalButton:active {
     outline: none;
 }
@@ -64,7 +60,8 @@
     width: 90%;
 }
 
-.terminalCard:hover {
+.terminalCard:hover,
+.newTerminalButton:hover {
     outline: solid 2px #579CFF;
 }
 
@@ -98,9 +95,84 @@
     color: #B3BFCC;
     height: 25px;
     float: left;
-    margin-left: 2%;
-    margin-right: 3%;
-    margin-top: -40px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    margin-top: 10px;
     outline: none;
-    width: 94%;
+    padding-left: 10px;
+    width: calc(94% - 10px);
+}
+
+.titleInput::placeholder,
+.commandInput::placeholder {
+    color: #B3BFCC;
+}
+
+.titleInput:focus,
+.commandInput:focus {
+    outline: solid 2px #579CFF;
+}
+
+.commandInput {
+    background-color: #22272B;
+    border: solid 1px #738496;
+    border-radius: 5px;
+    color: #B3BFCC;
+    height: 25px;
+    float: left;
+    font-size: 14px;
+    margin-bottom: 10px;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    margin-top: 10px;
+    outline: none;
+    padding-left: 10px;
+    resize: vertical;
+    width: calc(94% - 10px);
+}
+
+.buttonContainer {
+    float: left;
+    margin-bottom: 10px;
+    margin-left: 2.5%;
+    width: calc(94% - 10px);
+}
+
+.createButton {
+    background-color: #579CFF;
+    border: none;
+    border-radius: 5px;
+    color: #1D2125;
+    cursor: pointer;
+    float: left;
+    font-weight: bold;
+    height: 30px;
+    width: 70px;
+}
+
+.createButton:hover {
+    background-color: #77B0FF;
+}
+
+.createButton:active {
+    background-color: #85B8FF;
+}
+
+.cancelButton {
+    border: none;
+    background-color: transparent;
+    border-radius: 5px;
+    color: #B6C2CF;
+    cursor: pointer;
+    float: left;
+    font-size: 17px;
+    height: 30px;
+    margin-left: 5px;
+    width: 30px;
+}
+
+.cancelButton:hover {
+    background-color: rgba(255, 255, 255, 0.186);
 }

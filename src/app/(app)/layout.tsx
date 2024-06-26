@@ -12,9 +12,13 @@ export default function RootLayout({
 }>) {
   const [terminalList, setTerminalList] = useState<Terminal[]>([]);
   const [terminalForm, setTerminalForm] = useState<boolean>(false);
+  const [title, setTitle] = useState<string>("");
+  const [command, setCommand] = useState<string>("");
 
   const newTerminalButtonClickHandler = () => {
-    setTerminalForm(true);
+    if (!terminalForm) {
+      setTerminalForm(true);
+    }
   }
 
   const getTerminalList = async () => {
@@ -23,6 +27,46 @@ export default function RootLayout({
     if (data?.terminais) {
       setTerminalList(data.terminais);      
     }
+  }
+
+  const closeButtonClickHandler = () => {
+    setTerminalForm(false);
+    console.log(terminalForm)
+  }
+
+  const titleChangeEventHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setTitle(event.target.value);
+  }
+  const cmdChangeEventHandler = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setCommand(event.target.value);
+  }
+
+  const createButtonClickHandler = async () => {
+    await fetch(
+      `${API_URL}/terminal`,
+      {
+        method: "POST",
+        headers: {
+          'Content-Type': "application/json"
+        },
+        body: JSON.stringify({
+          command: command,
+          title: title,
+          createdBy: "portal"
+        })
+      }
+    );
+    getTerminalList();
+  }
+
+  const noFormsStyle = {
+    height: "40px"
+  }
+
+  const formsStyle = {
+    minHeight: "100px",
+    height: "max-content",
+    outline: "none"
   }
 
   useEffect(() => {
@@ -54,18 +98,35 @@ export default function RootLayout({
         <button
           className={styles.newTerminalButton}
           onClick={newTerminalButtonClickHandler}
-          style={{
-            height: terminalForm ? "100px" : "40px"
-          }}
+          style={terminalForm ? formsStyle : noFormsStyle}
         >
           {
             terminalForm ? <>
               <input
                 className={styles.titleInput}
+                onChange={titleChangeEventHandler}
                 placeholder="título"
-              >
-              
-              </input>
+                type="text"
+              />
+              <textarea
+                className={styles.commandInput}
+                onChange={cmdChangeEventHandler}
+                placeholder="comando"
+              />
+              <div className={styles.buttonContainer}>
+                <button
+                  className={styles.createButton}
+                  onClick={createButtonClickHandler}
+                >
+                  Criar
+                </button>
+                <button
+                  className={styles.cancelButton}
+                  onClick={closeButtonClickHandler}
+                >
+                  x
+                </button>
+              </div>
             </> : <>
               <p>+</p>
               <span>
