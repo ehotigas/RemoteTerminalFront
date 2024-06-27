@@ -25,10 +25,17 @@ export default function TerminalListPage() {
     return (
         <div className={styles.mainContainer}>
             <div className={styles.terminalHeader}>
-                <p>
-                {terminalData?.status}@{terminalData?.title}
-
+                <div className={styles.headerStatus}>
+                    <p className={styles.headerStatusText}>{terminalData?.status}</p>
+                </div>
+                <p className={styles.terminalTitle}>
+                    @{terminalData?.title}
                 </p>
+                <div className={styles.rightHeaderContainer}>
+                    <div className={styles.circle} style={{ backgroundColor: "green" }}/>
+                    <div className={styles.circle} style={{ backgroundColor: "yellow" }}/>
+                    <div className={styles.circle}/>
+                </div>
             </div>
             <div className={styles.terminalContainer}>
                 <pre className={styles.bash}>

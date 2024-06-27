@@ -1,9 +1,12 @@
 'use client'
-import { useEffect, useState } from "react";
-import styles from "./layout.module.css";
-import { Terminal } from "../types/Terminal";
 import { API_URL } from "../types/GlobalVars";
+import { Terminal } from "../types/Terminal";
+import { useEffect, useState } from "react";
+import { FaTrash } from "react-icons/fa";
+import styles from "./layout.module.css";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+
 
 export default function RootLayout({
   children,
@@ -14,6 +17,7 @@ export default function RootLayout({
   const [terminalForm, setTerminalForm] = useState<boolean>(false);
   const [title, setTitle] = useState<string>("");
   const [command, setCommand] = useState<string>("");
+  const router = useRouter();
 
   const newTerminalButtonClickHandler = () => {
     if (!terminalForm) {
@@ -39,6 +43,15 @@ export default function RootLayout({
   }
   const cmdChangeEventHandler = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setCommand(event.target.value);
+  }
+
+  const trashButtonClickHandler = (id: number) => async () => {
+    await fetch(
+      `${API_URL}/terminal/${id}`,
+      { method: "DELETE" }
+    );
+    getTerminalList();
+    router.push("/")
   }
 
   const createButtonClickHandler = async () => {
@@ -90,6 +103,12 @@ export default function RootLayout({
                 </div>
                 <div className={styles.titleContainer}>
                   {terminal.title}
+                </div>
+                <div
+                  className={styles.trash}
+                  onClick={trashButtonClickHandler(terminal.id)}
+                >
+                  <FaTrash className={styles.trashIcon}/>
                 </div>
               </div>
             </Link>
